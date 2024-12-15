@@ -7,8 +7,7 @@ const Header = () => {
             <h1 className="text-xl content-center">Naval Nexus</h1>
             <nav className="flex content-center">
                 <Link className="p-4" href={'/'}>Home</Link>
-                <Link className="p-4" href={'/saved'}>Saved</Link>
-                <Link className="p-4" href={'/my-posts'}>My Posts</Link>
+                <Link className="p-4" href={'/create'}>Create Post</Link>
             </nav>
         </div>
     </header>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
 import ContentFilter from "../ui/ContentFilter/ContentFilter"
 import {posts} from '../../fb/database'
 
@@ -28,6 +27,7 @@ interface content {
 }
 
 const Landing = () => {
+  const [dbContent, setDbContent] = useState([]);
   const [content, setContent] = useState([]);
 
   useEffect(()=>{
@@ -38,11 +38,28 @@ const Landing = () => {
       content.id = doc.id;
       contentArr.push(content);
     });
+    setDbContent(contentArr);
     setContent(contentArr);
   },[])
 
-  const updateContent = (new_content: any | {filter:string, search_value:string}):void => {
-
+  const updateContent = (new_content: any | {filter:string, search_value:string, filterName:string}):void => {
+    if (new_content.search_value != "" && new_content.filter != "" && new_content.filterName == "") {
+      // Search logic
+      const newContent = dbContent.filter((post:any) => {
+        return post[new_content.filter].toLocaleLowerCase().includes(new_content.search_value.toLocaleLowerCase())
+      })
+      setContent(newContent);
+    }
+    if (new_content.filter != "" && new_content.search_value == "" && new_content.filterName != "") {
+      // Filter logic
+      const newContent = dbContent.filter((post:any)=>{
+        return post.tags[new_content.filterName] === new_content.filter
+      });
+      setContent(newContent);
+    }
+    if (new_content.search_value == "" && new_content.filterName == "") {
+      setContent(dbContent);
+    }
   }
 
   return (

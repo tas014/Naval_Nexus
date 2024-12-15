@@ -42,22 +42,32 @@ interface article {
 }
 
 interface props {
-    updateContent: (new_content:article[] | {filter:string, search_value:string}) => void,
+    updateContent: (new_content:article[] | {filter:string, search_value:string, filterName:string}) => void,
     content: article[]
 }
 
 const ContentFilter = ({updateContent, content}:props) => {
+    let timeoutID: string | number | NodeJS.Timeout | undefined = "";
     const handleFilters = (e:React.ChangeEvent<HTMLSelectElement>):void => {
-        console.log(e);
+        const filterValue = {
+            filter: e.target.value,
+            search_value: "",
+            filterName: e.target.name
+        }
+        updateContent(filterValue)
     }
 
-    const handleSearch = (searchParams:{filter:string, searchValue: string}) : void => {
-        console.log(searchParams);
+    const handleSearch = (searchParams:{filter:string, search_value: string, filterName:string}) : void => {
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(()=>{
+            searchParams.filterName = "";
+            updateContent(searchParams)
+        },500)
     }
 
-    const paginate = (current_ind:number) => {
+    /* const paginate = (current_ind:number) => {
         
-    }
+    } */
 
   return (
     <section>
@@ -70,7 +80,7 @@ const ContentFilter = ({updateContent, content}:props) => {
         <div className={`${styles.content} bg-gray-800 flex h-fit p-10`} >
             {content.map(art => <PostCard key={art.id} art={art} />)}
         </div>
-        <Pagination paginate={paginate} limit={5} content={content} />
+        {/* <Pagination paginate={paginate} limit={5} content={content} /> */}
     </section>
   )
 }

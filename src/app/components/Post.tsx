@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Tab from "./Tab";
-import { FaArrowUp, FaArrowDown, FaStar } from "react-icons/fa6";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa6";
 import { CgDanger } from "react-icons/cg";
-import { updatePost } from "@/fb/database";
 
 interface postTab {
     title: string,
@@ -18,12 +17,15 @@ interface postData {
 }
 
 interface props {
-    postData: postData
+    postData: postData,
+    updateVotesAdd: (direction:boolean) => void,
+    updateVotesRemove: (direction:boolean) => void
 }
 
-const Post = ({postData}:props) => {
+const Post = ({postData, updateVotesAdd, updateVotesRemove}:props) => {
     const [currentTab, setCurrentTab] = useState(0);
     const [upvoted, setUpvoted] = useState(false);
+    const [downvoted, setDownvoted] = useState(false);
 
 
     const formatTabContent = (content:string) => {
@@ -39,6 +41,24 @@ const Post = ({postData}:props) => {
         });
     }
 
+    const handleVotesInteraction = (direction:boolean) => {
+        if (direction) {
+            if (!upvoted) {
+                updateVotesAdd(direction)
+            } else {
+                updateVotesRemove(direction)
+            }
+            setUpvoted(!upvoted);
+        } else {
+            if (!downvoted) {
+                updateVotesAdd(direction);
+            } else {
+                updateVotesRemove(direction);
+            }
+            setDownvoted(!downvoted);
+        }
+    }
+
     let content;
     if(postData != null) { content = 
         <section>
@@ -50,9 +70,8 @@ const Post = ({postData}:props) => {
                 <p>{formatTabContent(postData.tabs[currentTab].content)}</p>
             </div>
             <ul>
-                <li><FaArrowUp /><span>{postData.upvotes}</span></li>
-                <li><FaArrowDown /><span>{postData.downvotes}</span></li>
-                <li><FaStar /><span>{postData.saved}</span></li>
+                <li><FaArrowUp onClick={()=> handleVotesInteraction(true)}/><span>{postData.upvotes}</span></li>
+                <li><FaArrowDown onClick={()=> handleVotesInteraction(false) }/><span>{postData.downvotes}</span></li>
                 <li><CgDanger /><span>Report post</span></li>
             </ul>
         </section>;

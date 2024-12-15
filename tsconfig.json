@@ -34,7 +34,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/post/[id]/page.js",
-    "src/fb/database.js"
+    "src/fb/database.js",
+    "src/app/components/CreatePost/CreatePost.js",
+    "src/app/components/CreatePost/PostAttributes.js",
+    "src/app/ui/Searchbar.jsx"
   ],
   "exclude": [
     "node_modules"
