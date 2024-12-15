@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Login = () => {
+const LoginComponent = () => {
     const [userData, setUserData] = useState({
         'email': null,
         'password': null
@@ -27,7 +27,7 @@ const Login = () => {
     <section>
         <form action="" method='get' onSubmit={loginUser}>
             <fieldset>
-                <legend>Login</legend>
+                <legend>Component</legend>
                 <div>
                     <div>
                         <label htmlFor="email"></label>
@@ -48,4 +48,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginComponent

@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 const searchFilters = {
     name: "Search options",
-    options: ["author", "ship", "post", "liked", "saved"]
+    options: ["Author", "Ship", "Name"]
 }
 
 interface searchParams {
@@ -33,10 +33,10 @@ const Searchbar = ({handleSearch}:props) => {
 
   return (
     <div>
-      <input type="text" onChange={handleSearchFilter} placeholder="Search..." />
-      <select onChange={handleSearchValue}>
+      <input className="rounded-2xl mr-2" type="text" onChange={handleSearchFilter} placeholder="Search..." />
+      <select className="rounded" onChange={handleSearchValue}>
         <option value="">{searchFilters.name}</option>
-        {searchFilters.options.map(filt => <option value={filt} >{filt}</option>)}
+        {searchFilters.options.map((filt, key) => <option key={key} value={filt} >{filt}</option>)}
       </select>
     </div>
   )

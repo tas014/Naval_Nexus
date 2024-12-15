@@ -10,8 +10,8 @@ interface props {
 
 const Filter = ({options, category, handleFilter}:props) => {
   return (
-    <select name={category} id={category} onChange={handleFilter} value={options[0]} >
-        {options.map(option => <option value={option}>{option}</option>)}
+    <select className="rounded mr-3 text-black p-1" name={category} id={category} onChange={handleFilter} value={options[0]} >
+        {options.map((option, key) => <option key={key} value={option}>{option}</option>)}
     </select>
   )
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from './Pagination.module.css'
 
 interface tags {
     tier: string,
@@ -33,11 +34,12 @@ const Pagination = ({paginate, content, limit}:props) => {
     const [pages, setPages] = useState([1,2,3,4,5]);
     const [lastSelected, setLastSelected] = useState(1);
     const articles_per_page = 6;
+    const btn_styles = "rounded-full h-8 w-8 mr-2 border-solid bg-gray-700"
     
     const updatePages = (e: any):void => {
         const selectedPage = parseInt(e.target.getAttribute('key'));
         const currentPages = [...pages];
-        const loopStartValue = selectedPage-2
+        const loopStartValue = selectedPage-2;
         for (let i=0; i<limit; i++) {
             currentPages[i] = loopStartValue+i
         }
@@ -65,8 +67,8 @@ const Pagination = ({paginate, content, limit}:props) => {
 
   return (
     <div>
-        <ul>
-            {pages.map(page_ind => <button className={page_ind === lastSelected ? "selected" : ""} key={page_ind} onClick={updatePages} >{isAbbreviated(page_ind)}</button>)}
+        <ul className="flex justify-center content-center mt-5">
+            {pages.map(page_ind => <button className={page_ind === lastSelected ? `${styles.selected} ${btn_styles}` : btn_styles} key={page_ind} onClick={updatePages} >{isAbbreviated(page_ind)}</button>)}
         </ul>
     </div>
   )

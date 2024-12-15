@@ -1,8 +1,8 @@
-import Filter from "./Filter"
-import { useState } from "react"
-import Searchbar from "./Searchbar"
-import PostCard from "../components/PostCard"
-import Pagination from "./Pagination"
+import Filter from "../Filter"
+import Searchbar from "../Searchbar"
+import PostCard from "../../components/PostCard"
+import Pagination from "../Pagination/Pagination"
+import styles from './ContentFilter.module.css'
 
 const filters = [{
     name: "class",
@@ -60,17 +60,18 @@ const ContentFilter = ({updateContent, content}:props) => {
     }
 
   return (
-    <div>
-        <h3>Filter Options</h3>
-        <div>
-            {filters.map(filt => <Filter key={filt.name} options={filt.options} category={filt.name} handleFilter={handleFilters} />)}
+    <section>
+        <div className="mt-5 flex justify-between">
+            <div>
+                {filters.map((filt, key) => <Filter key={key} options={filt.options} category={filt.name} handleFilter={handleFilters} />)}
+            </div>
             <Searchbar handleSearch={handleSearch} />
         </div>
-        <div>
+        <div className={`${styles.content} bg-gray-800 flex h-fit p-10`} >
             {content.map(art => <PostCard key={art.id} art={art} />)}
         </div>
         <Pagination paginate={paginate} limit={5} content={content} />
-    </div>
+    </section>
   )
 }
 

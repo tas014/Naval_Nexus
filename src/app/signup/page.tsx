@@ -1,12 +1,11 @@
+"use client"
 import Signup from "../layouts/Signup"
 
 const signup = () => {
-  return (
-    <body>    
+  return (    
         <main>
             <Signup />
         </main>
-    </body>
   )
 }
 

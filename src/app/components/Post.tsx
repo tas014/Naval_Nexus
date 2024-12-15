@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
 import Tab from "./Tab";
 import { FaArrowUp, FaArrowDown, FaStar } from "react-icons/fa6";
 import { CgDanger } from "react-icons/cg";
+import { updatePost } from "@/fb/database";
 
 interface postTab {
-    tabName: string,
+    title: string,
     content: string
 }
 
@@ -22,6 +23,8 @@ interface props {
 
 const Post = ({postData}:props) => {
     const [currentTab, setCurrentTab] = useState(0);
+    const [upvoted, setUpvoted] = useState(false);
+
 
     const formatTabContent = (content:string) => {
         return content;
@@ -30,17 +33,18 @@ const Post = ({postData}:props) => {
     const switchTab = (e:React.MouseEvent<HTMLElement>):void => {
         const clickedTab = e.currentTarget.innerText;
         postData.tabs.forEach((tab, ind) => {
-            if (tab.tabName === clickedTab && clickedTab !== postData.tabs[currentTab].tabName) {
+            if (tab.title === clickedTab && clickedTab !== postData.tabs[currentTab].title) {
                 setCurrentTab(ind);
             }
         });
     }
-    
-    return (
+
+    let content;
+    if(postData != null) { content = 
         <section>
             <h1>{postData.title}</h1>
             <ul>
-                {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.tabName} key={ind} />)}
+                {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.title} key={ind} />)}
             </ul>
             <div>
                 <p>{formatTabContent(postData.tabs[currentTab].content)}</p>
@@ -51,7 +55,22 @@ const Post = ({postData}:props) => {
                 <li><FaStar /><span>{postData.saved}</span></li>
                 <li><CgDanger /><span>Report post</span></li>
             </ul>
+        </section>;
+    } else {
+        content = 
+        <section className="w-4/5 h-screen w-4/5 m-auto">
+            <div className="bg-gray-400 rounded w-full p-5"></div>
+            <div className="bg-gray-400 rounded w-full p-5"></div>
+            <div className="bg-gray-400 rounded w-full p-5"></div>
+            <div className="bg-gray-400 rounded w-full p-5"></div>
+            <div className="bg-gray-400 rounded w-full p-5"></div>
         </section>
+    }      
+    
+    return (
+        <>
+            {content}
+        </>
     )
 }
 

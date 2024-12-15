@@ -2,7 +2,7 @@ import Tab from "../components/Tab"
 import PostCard from "../components/PostCard";
 import { useState, useEffect } from "react";
 
-const MyPosts = () => {
+const UserPosts = () => {
   const [currentTab, setCurrentTab] = useState(true);
   const [userPosts, setUserPosts] = useState([]);
   const [savedPosts, setSavedPosts] = useState([]);
@@ -29,4 +29,4 @@ const MyPosts = () => {
   )
 }
 
-export default MyPosts
+export default UserPosts
