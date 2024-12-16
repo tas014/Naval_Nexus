@@ -66,7 +66,7 @@ const PostAttributes = ({ setPostAttributes }) => {
                 </ul>
             </div>
             <div className='mt-5 flex flex-col'>
-                <span className='text-red-700'>{errors.length != 0 ? errors[0] : null}</span>
+                <span className='text-red-400'>{errors.length != 0 ? errors[0] : null}</span>
                 <button className='bg-emerald-500 hover:bg-emerald-400 text-white pt-1 pb-1 pr-3 pl-3 text-xl border-solid border-teal-900 border-1 rounded mt-1 w-1/5' onClick={validateForm}>Next</button>
             </div>
         </form>

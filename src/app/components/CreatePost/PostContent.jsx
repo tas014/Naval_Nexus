@@ -54,7 +54,7 @@ const PostContent = ({ setContent }) => {
                 <div className='flex justify-center content-center flex-wrap flex-col'>
                     <div className='flex flex-col mb-4'>
                         <label className='text-xl font-bold text-slate-300 mb-3' htmlFor="tabName">Tab Name</label>
-                        <span className='text-red-500' id='tab_creation_error'></span>
+                        <span className='text-red-400' id='tab_creation_error'></span>
                         <input className='p-2' type="text" id='tabName' />
                     </div>
                     <div>
