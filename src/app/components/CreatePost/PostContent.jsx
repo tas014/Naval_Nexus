@@ -4,10 +4,8 @@ import { useState } from 'react';
 const PostContent = ({ setContent }) => {
     const [tabs, setTabs] = useState([{ title: "General", content: "" }]);
     const [currentTab, setCurrentTab] = useState(0);
-    const newTabRef = document.getElementById('tabName')?.value;
 
     const validateContent = () => {
-        const postContent = document.getElementById("post_content").innerText;
         setContent(tabs);
     }
 
@@ -69,7 +67,9 @@ const PostContent = ({ setContent }) => {
                 {tabs.map((tab, key) => <li className={`text-slate-100 hover:bg-slate-300 cursor-pointer pr-2 pl-2 pt-1 rounded-xl rounded-b-none font-bold ${currentTab == key ? "bg-slate-500" : "bg-slate-400"} cursor-pointer`} pos={key} key={key} onClick={swapTab}>{tab.title}</li>)}
             </ul>
             <textarea className='w-full h-full border-solid border-2 rounded-xl border-slate-800 p-4 bg-slate-100/85' placeholder='Write your content here...' onChange={updateTabContent} contentEditable id="post_content" />
-            <button className='w-fit self-end pr-5 pl-5 pt-2 pb-2 rounded bg-emerald-500 mr-1 mt-2 text-slate-100 font-bold hover:bg-emerald-400' onClick={validateContent}>Create Post</button>
+            <button className='w-fit self-end pr-5 pl-5 pt-2 pb-2 rounded bg-emerald-500 mr-1 mt-2 text-slate-100 font-bold hover:bg-emerald-400' onClick={validateContent}>
+                Create Post
+            </button>
         </div>
     )
 }

@@ -67,7 +67,7 @@ const Post = ({postData, updateVotesAdd, updateVotesRemove}:props) => {
                 {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.title} key={ind} selected={currentTab==ind} />)}
             </ul>
             <div className="min-h-70 bg-slate-200/80 rounded p-5 w-full">
-                <p className="text-slate-800">{formatTabContent(postData.tabs[currentTab].content)}</p>
+                <p className="whitespace-pre-wrap text-slate-800">{formatTabContent(postData.tabs[currentTab].content)}</p>
             </div>
             <ul className="flex mt-4">
                 <li className="cursor-pointer flex mr-4 justify-center content-center flex-wrap"><FaArrowUp className={`mr-1 text-l font-bold ${upvoted? "text-orange-500 hover:text-slate-200" : "hover:text-orange-500"}`}onClick={()=> handleVotesInteraction(true)}/><span>{postData.upvotes}</span></li>

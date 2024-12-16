@@ -33,10 +33,10 @@ interface props {
 
 const PostCard = ({art}:props) => {
   return (
-    <Link className="hover:bg-slate-200 hover:text-slate-800 mb-10 h-fit m-2  min-h-25 p-3 content-center justify-center flex-wrap rounded-xl border-solid border-2 border-slate-300 mt-3 h-fit h-full flex sm:w-full md:w-fit lg:w-fit xl:w-1/3 " href={`/post/${art.id}`}>
+    <Link className="hover:bg-slate-200 hover:text-slate-800 h-fit m-2  min-h-25 p-3 content-center justify-center flex-wrap rounded-xl border-solid border-2 border-slate-300 mt-3 h-fit h-full flex post-card-container" href={`/post/${art.id}`}>
         <article className="flex flex-col content-center justify-center flex-wrap flex">
             <div className="flex flex-col justify-center content-center justify-center flex-wrap p-4 w-9/10">
-                <h3 className="lg:text-3xl md:text-2xl sm:text-xl font-bold text-center">{art.title}</h3>
+                <h3 className="lg:text-2xl md:text-1xl sm:text-xl font-bold text-center">{art.title}</h3>
                 <p className="mt-2 text-center">{art.description}</p>
                 <div className="flex w-full justify-center mt-5 text-slate-200  border-solid border-2 border-slate-800 rounded-xl p-3 bg-slate-700">
                     <div className="flex pr-3 justify-center content-center flex-wrap">

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --background: #ffffff;
@@ -63,4 +64,36 @@ select {
   background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: darken;
   background-size: cover;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.post-card-container {
+  width: 30%;
+}
+
+@media (max-width: 1080px) {
+  .post-card-container {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .post-card-container {
+    width: 100%;
+  }
 }

@@ -37,7 +37,8 @@
     "src/fb/database.js",
     "src/app/components/CreatePost/CreatePost.jsx",
     "src/app/components/CreatePost/PostAttributes.jsx",
-    "src/app/ui/Searchbar.jsx"
+    "src/app/ui/Searchbar.jsx",
+    "src/app/layout.jsx"
   ],
   "exclude": [
     "node_modules"
