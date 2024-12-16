@@ -9,10 +9,14 @@ interface props {
 }
 
 const Filter = ({options, category, handleFilter}:props) => {
+  const formattedCategory = category[0].toLocaleUpperCase() + category.slice(1, category.length);
   return (
-    <select className="rounded mr-3 text-black p-1" name={category} id={category} onChange={handleFilter} value={options[0]} >
-        {options.map((option, key) => <option key={key} value={option}>{option}</option>)}
-    </select>
+    <div className="flex flex-col mr-2">
+      <span>{formattedCategory}</span>
+      <select className="rounded mr-3 text-black p-1" name={category} id={category} onChange={handleFilter} >
+          {options.map((option, key) => <option key={key} value={option}>{option}</option>)}
+      </select>
+    </div>
   )
 }
 

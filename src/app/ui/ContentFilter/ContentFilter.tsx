@@ -72,7 +72,7 @@ const ContentFilter = ({updateContent, content}:props) => {
   return (
     <section>
         <div className="mt-5 flex justify-between">
-            <div>
+            <div className="flex justify-between">
                 {filters.map((filt, key) => <Filter key={key} options={filt.options} category={filt.name} handleFilter={handleFilters} />)}
             </div>
             <Searchbar handleSearch={handleSearch} />

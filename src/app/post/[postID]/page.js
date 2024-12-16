@@ -53,7 +53,9 @@ const Page = ({ params }) => {
     return (
         <>
             <Header />
-            <Post postData={postData} updateVotesAdd={updateVotesAdd} updateVotesRemove={updateVotesRemove} />
+            <main>
+                <Post postData={postData} updateVotesAdd={updateVotesAdd} updateVotesRemove={updateVotesRemove} />
+            </main>
         </>
     )
 }

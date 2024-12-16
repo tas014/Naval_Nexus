@@ -32,14 +32,14 @@ const CreatePost = () => {
     }
     const createPostContent = content => {
         const postData = { ...postAttributes };
-        postData.tabs = [{ title: "Content", content: content }];
+        postData.tabs = content;
         setPostAttributes(postData);
         createPost(postData);
     }
     return (
-        <section>
-            <h1>Create Post</h1>
-            <div>
+        <section className="w-4/5 mt-20 m-auto flex flex-col justify-center h-full">
+            <h1 className="text-3xl font-bold mb-5">Create Post</h1>
+            <div className="bg-gray-300 min-h-70 flex justify-center align-center flex-wrap">
                 {canEdit ? <PostContent setContent={createPostContent} /> : <PostAttributes setPostAttributes={createPostAttributes} />}
             </div>
         </section>

@@ -7,15 +7,35 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+}*/
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh
+}
+
+input,
+select {
+  border: solid 2px black
+}
+
+.no-bot-border {
+  border-bottom: none;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.min-h-60 {
+  min-height: 60vh;
+}
+
+.min-h-70 {
+  min-height: 70vh;
 }
