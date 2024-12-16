@@ -58,7 +58,7 @@ const Landing = () => {
       });
       setContent(newContent);
     }
-    if (new_content.search_value == "" && new_content.filterName == "") {
+    if ((new_content.search_value == "" && new_content.filterName == "") || (new_content.filter == "" && new_content.search_value == "" && new_content.filterName != "")) {
       setContent(dbContent);
     }
   }

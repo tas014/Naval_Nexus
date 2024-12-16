@@ -14,6 +14,7 @@ const Filter = ({options, category, handleFilter}:props) => {
     <div className="flex flex-col mr-2">
       <span>{formattedCategory}</span>
       <select className="rounded mr-3 text-black p-1" name={category} id={category} onChange={handleFilter} >
+          <option value="">Any</option>
           {options.map((option, key) => <option key={key} value={option}>{option}</option>)}
       </select>
     </div>
