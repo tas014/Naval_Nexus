@@ -61,7 +61,7 @@ const Post = ({postData, updateVotesAdd, updateVotesRemove}:props) => {
 
     let content;
     if(postData != null) { content = 
-        <section className="w-4/5 m-auto mt-10 flex flex-wrap justify-between content-center text-slate-200">
+        <section className="w-4/5 m-auto mt-10 flex flex-wrap justify-between content-center text-slate-200 pt-4 pb-4">
             <h1 className="text-3xl font-bold mb-4">{postData.title}</h1>
             <ul className="mt-5 flex justify-end">
                 {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.title} key={ind} selected={currentTab==ind} />)}
