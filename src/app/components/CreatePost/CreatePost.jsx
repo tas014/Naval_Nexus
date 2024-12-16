@@ -61,7 +61,7 @@ const CreatePost = () => {
     return (
         <section className="w-4/5 mt-20 m-auto flex flex-col justify-center h-full relative">
             <h1 className="text-3xl font-bold mb-5 text-slate-200">Create Post</h1>
-            <div className="bg-slate-100/25 min-h-70 flex justify-center align-center flex-wrap rounded pt-4 pb-4">
+            <div className="bg-slate-800/35 min-h-70 flex justify-center align-center flex-wrap rounded pt-4 pb-4">
                 {canEdit ? <PostContent setContent={createPostContent} /> : <PostAttributes setPostAttributes={createPostAttributes} />}
             </div>
             <div id="promise_modal" className={`modal ${showModal ? "flex" : "hidden"} w-full h-full absolute top-0 left-0 bg-slate-900/75 justify-center content-center flex-wrap`}>

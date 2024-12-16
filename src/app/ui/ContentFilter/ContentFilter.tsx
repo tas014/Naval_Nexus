@@ -77,7 +77,7 @@ const ContentFilter = ({updateContent, content}:props) => {
             </div>
             <Searchbar handleSearch={handleSearch} />
         </div>
-        <div className="min-h-70 mt-5 bg-slate-400/35 rounded flex h-fit p-10 flex-wrap md:justify-around lg:justify-start" >
+        <div className="min-h-70 mt-5 bg-slate-800/35 rounded flex h-fit p-10 flex-wrap md:justify-around lg:justify-start" >
             {content.map(art => <PostCard key={art.id} art={art} />)}
         </div>
         {/* <Pagination paginate={paginate} limit={5} content={content} /> */}
