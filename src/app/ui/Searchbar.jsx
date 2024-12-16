@@ -19,7 +19,7 @@ const Searchbar = ({ handleSearch }) => {
   return (
     <div className="lg:flex content-end flex-wrap text-slate-800 md:hidden sm:hidden">
       <input id="SearchBar" className="rounded-full mr-2 p-2" type="text" onChange={updateSearchParams} placeholder="Search..." />
-      <select id="SearchFilter p-1" className="rounded" onChange={updateSearchParams}>
+      <select id="SearchFilter" className="rounded" onChange={updateSearchParams}>
         <option value="">None</option>
         <option value="title">Post Name</option>
         <option value="author">Author</option>

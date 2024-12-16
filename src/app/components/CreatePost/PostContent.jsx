@@ -48,7 +48,7 @@ const PostContent = ({ setContent }) => {
 
     return (
         <div className='min-w-full relative flex flex-col p-4'>
-            <div className='modal hidden w-full h-full absolute top-0 left-0 bg-slate-900/75 flex justify-center content-center flex-wrap'>
+            <div className='modal hidden w-full h-full absolute top-0 left-0 bg-slate-900/85 flex justify-center content-center flex-wrap'>
                 <div className='flex justify-center content-center flex-wrap flex-col'>
                     <div className='flex flex-col mb-4'>
                         <label className='text-xl font-bold text-slate-300 mb-3' htmlFor="tabName">Tab Name</label>

@@ -46,6 +46,7 @@ const Landing = () => {
     if (new_content.search_value != "" && new_content.filter != "" && new_content.filterName == "") {
       // Search logic
       const newContent = dbContent.filter((post:any) => {
+        console.log(new_content.filter);
         return post[new_content.filter].toLocaleLowerCase().includes(new_content.search_value.toLocaleLowerCase())
       })
       setContent(newContent);
