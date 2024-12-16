@@ -63,7 +63,7 @@ const Landing = () => {
   }
 
   return (
-    <main className="flex justify-center">
+    <main className="flex justify-center pb-8">
         <section className="w-4/5 mt-5">
             <h1 className="text-center text-5xl mt-8">Naval Nexus</h1>
             <div className="mt-7">

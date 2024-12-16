@@ -7,7 +7,7 @@ const Create = () => {
     return (
         <div className="sub-background min-h-screen">
             <Header />
-            <main>
+            <main className='pb-8'>
                 <CreatePost />
             </main>
         </div>
