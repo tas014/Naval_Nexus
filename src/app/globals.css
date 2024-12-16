@@ -32,10 +32,35 @@ select {
   border-bottom-left-radius: 0px;
 }
 
+.min-h-25 {
+  min-height: 25vh;
+}
+
 .min-h-60 {
   min-height: 60vh;
 }
 
 .min-h-70 {
   min-height: 70vh;
+}
+
+.cv-background {
+  background-image: url('../../public/img/CV.jpg');
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
+.sub-background {
+  background-image: url('../../public/img/Sub.jpg');
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-size: cover;
+}
+
+.bb-background {
+  background-image: url('../../public/img/BB.jpg');
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  background-size: cover;
 }

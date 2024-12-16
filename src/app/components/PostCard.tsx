@@ -33,26 +33,26 @@ interface props {
 
 const PostCard = ({art}:props) => {
   return (
-    <Link className="w-1/3 mb-10 h-fit" href={`/post/${art.id}`}>
-        <article className="flex flex-col p-3 content-center flex-wrap rounded-xl bg-gray-600 m-3 mt-3 h-fit">
-            <div className="flex flex-col justify-center content-center justify-center w-5/6 flex-wrap">
-                <h3 className="text-2xl font-bold text-center">{art.title}</h3>
+    <Link className="hover:bg-slate-200 hover:text-slate-800 mb-10 h-fit m-2  min-h-25 p-3 content-center justify-center flex-wrap rounded-xl border-solid border-2 border-slate-300 mt-3 h-fit h-full flex sm:w-full md:w-fit lg:w-fit xl:w-1/3 " href={`/post/${art.id}`}>
+        <article className="flex flex-col content-center justify-center flex-wrap flex">
+            <div className="flex flex-col justify-center content-center justify-center flex-wrap p-4 w-9/10">
+                <h3 className="lg:text-3xl md:text-2xl sm:text-xl font-bold text-center">{art.title}</h3>
                 <p className="mt-2 text-center">{art.description}</p>
-                <div className="flex w-full justify-center mt-5">
-                    <div className="flex mr-8 justify-center content-center flex-wrap">
-                        <span className="text-4xl w-12 h-12 font-bold self-center pt-1 text-center border-solid border-2 border-slate-900 rounded-full w-100 h-100">
+                <div className="flex w-full justify-center mt-5 text-slate-200  border-solid border-2 border-slate-800 rounded-xl p-3 bg-slate-700">
+                    <div className="flex pr-3 justify-center content-center flex-wrap">
+                        <span className="xl:text-4xl lg:text-3xl md:text-2xl w-12 h-12 align-middle font-bold self-center xl:pt-1 lg:pt-1 md:pt-2 sm:pt-3 text-center border-solid border-2 border-slate-200 rounded-full w-100 h-100">
                             {art.author[0].toUpperCase()}
                         </span>
                     </div>
                     <div className="flex flex-wrap flex-col content-center justify-center">
-                        <h5 className="text-center text-xl">{art.author}</h5>
+                        <h5 className="text-center xl:text-xl lg:text-l md:text-m font-bold">{art.author}</h5>
                         <div className="flex justify-center content-center mt-2">
                             <div className="flex mr-2">
-                                <FaArrowUp />
+                                <FaArrowUp className="text-orange-400 font-bold text-xl mr-2" />
                                 <span aria-description="Upvote Amount">{art.upvotes}</span>
                             </div>
                             <div className="flex ml-2">
-                                <FaArrowDown />
+                                <FaArrowDown className="text-blue-400 font-bold text-xl mr-2" />
                                 <span aria-description="Downvote Amount">{art.downvotes}</span>
                             </div>
                         </div>

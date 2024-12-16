@@ -37,7 +37,7 @@ const PostAttributes = ({ setPostAttributes }) => {
         setErrors(newErrors);
     }
     return (
-        <form className='w-2/5 m-auto'>
+        <form className='w-2/5 m-auto text-slate-100'>
             <div className='flex flex-col'>
                 <label className='text-xl font-bold' htmlFor="post_title">Post Title</label>
                 <input className='rounded p-2 mt-1' id="post_title" placeholder="your title..." />
@@ -60,14 +60,14 @@ const PostAttributes = ({ setPostAttributes }) => {
                     {filters.map((filter, key) =>
                         <li key={key} className='p-2 flex flex-col w-1/2'>
                             <span className='text-l font-bold'>{filter.name[0].toLocaleUpperCase() + filter.name.slice(1, filter.name.length)}</span>
-                            <select>{filter.options.map((option, subKey) => <option value={option} key={subKey}>{option}</option>)}</select>
+                            <select className='p-1 rounded  text-slate-800'>{filter.options.map((option, subKey) => <option value={option} key={subKey}>{option}</option>)}</select>
                         </li>
                     )}
                 </ul>
             </div>
             <div className='mt-5 flex flex-col'>
                 <span className='text-red-700'>{errors.length != 0 ? errors[0] : null}</span>
-                <button className='bg-emerald-500 text-white pt-1 pb-1 pr-3 pl-3 text-xl border-solid border-teal-900 border-1 rounded mt-1 w-1/5' onClick={validateForm}>Next</button>
+                <button className='bg-emerald-500 hover:bg-emerald-400 text-white pt-1 pb-1 pr-3 pl-3 text-xl border-solid border-teal-900 border-1 rounded mt-1 w-1/5' onClick={validateForm}>Next</button>
             </div>
         </form>
     )

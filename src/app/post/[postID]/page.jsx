@@ -51,12 +51,12 @@ const Page = ({ params }) => {
     }
 
     return (
-        <>
+        <div className='bb-background min-h-screen'>
             <Header />
             <main>
                 <Post postData={postData} updateVotesAdd={updateVotesAdd} updateVotesRemove={updateVotesRemove} />
             </main>
-        </>
+        </div>
     )
 }
 

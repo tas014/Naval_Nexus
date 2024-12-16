@@ -61,28 +61,35 @@ const Post = ({postData, updateVotesAdd, updateVotesRemove}:props) => {
 
     let content;
     if(postData != null) { content = 
-        <section>
-            <h1>{postData.title}</h1>
-            <ul>
-                {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.title} key={ind} />)}
+        <section className="w-4/5 m-auto mt-10 flex flex-wrap justify-between content-center text-slate-200">
+            <h1 className="text-3xl font-bold mb-4">{postData.title}</h1>
+            <ul className="mt-5 flex justify-end">
+                {postData.tabs.map((tab, ind) => <Tab switchTab={switchTab} tabName={tab.title} key={ind} selected={currentTab==ind} />)}
             </ul>
-            <div>
-                <p>{formatTabContent(postData.tabs[currentTab].content)}</p>
+            <div className="min-h-70 bg-slate-200/80 rounded p-5 w-full">
+                <p className="text-slate-800">{formatTabContent(postData.tabs[currentTab].content)}</p>
             </div>
-            <ul>
-                <li><FaArrowUp onClick={()=> handleVotesInteraction(true)}/><span>{postData.upvotes}</span></li>
-                <li><FaArrowDown onClick={()=> handleVotesInteraction(false) }/><span>{postData.downvotes}</span></li>
-                <li><CgDanger /><span>Report post</span></li>
+            <ul className="flex mt-4">
+                <li className="cursor-pointer flex mr-4 justify-center content-center flex-wrap"><FaArrowUp className={`mr-1 text-l font-bold ${upvoted? "text-orange-500 hover:text-slate-200" : "hover:text-orange-500"}`}onClick={()=> handleVotesInteraction(true)}/><span>{postData.upvotes}</span></li>
+                <li className="cursor-pointer flex mr-4 justify-center content-center flex-wrap"><FaArrowDown className={`mr-1 text-l font-bold ${downvoted? "text-blue-500 hover:text-slate-200" : "hover:text-blue-500"}`} onClick={()=> handleVotesInteraction(false) }/><span>{postData.downvotes}</span></li>
+                <li className="flex mr-4 justify-center content-center flex-wrap text-red-500"><CgDanger className="mr-1 text-xl" /><span>Report post</span></li>
             </ul>
         </section>;
     } else {
         content = 
-        <section className="w-4/5 h-screen w-4/5 m-auto">
-            <div className="bg-gray-400 rounded w-full p-5"></div>
-            <div className="bg-gray-400 rounded w-full p-5"></div>
-            <div className="bg-gray-400 rounded w-full p-5"></div>
-            <div className="bg-gray-400 rounded w-full p-5"></div>
-            <div className="bg-gray-400 rounded w-full p-5"></div>
+        <section className="w-4/5 h-screen w-4/5 m-auto mt-20">
+            <div className="bg-gray-400 rounded w-1/3 p-5 mb-3"></div>
+            <div className="bg-gray-400 rounded w-full p-5 mb-3 min-h-60">
+                <div className="bg-gray-200 rounded w-7/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-7/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-6/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-7/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-7/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-7/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-6/8 mb-3 mr-5 ml-4 p-4" />
+                <div className="bg-gray-200 rounded w-1/5 mb-3 mr-5 ml-4 p-4" />
+            </div>
+            <div className="bg-gray-400 rounded w-1/6 p-5 mb-3"></div>
         </section>
     }      
     
