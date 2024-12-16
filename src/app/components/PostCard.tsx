@@ -40,7 +40,7 @@ const PostCard = ({art}:props) => {
                 <p className="mt-2 text-center">{art.description}</p>
                 <div className="flex w-full justify-center mt-5 text-slate-200  border-solid border-2 border-slate-800 rounded-xl p-3 bg-slate-700">
                     <div className="flex pr-3 justify-center content-center flex-wrap">
-                        <span className="xl:text-4xl lg:text-3xl md:text-2xl w-12 h-12 align-middle font-bold self-center xl:pt-1 lg:pt-1 md:pt-2 sm:pt-3 text-center border-solid border-2 border-slate-200 rounded-full w-100 h-100">
+                        <span className="xl:text-4xl lg:text-3xl md:text-2xl w-12 h-12 align-middle font-bold self-center xl:pt-1 lg:pt-1 md:pt-2 sm:pt-3 pt-3 text-center border-solid border-2 border-slate-200 rounded-full w-100 h-100">
                             {art.author[0].toUpperCase()}
                         </span>
                     </div>
